@@ -1,73 +1,41 @@
 <template>
-  <div class="container">
-    <div>
-      <Logo />
-      <h1 class="title">
-        blog
-      </h1>
-      <div class="links">
-        <a
-          href="https://nuxtjs.org/"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="button--green"
-        >
-          Documentation
-        </a>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="button--grey"
-        >
-          GitHub
-        </a>
-      </div>
-    </div>
+  <div class="wrapper-content wrapper-content--fixed">
+    <promo />
+    <Intro title="My lasts posts:" />
+    <PostsList :posts="posts" />
+    <contacts />
   </div>
 </template>
 
 <script>
-export default {}
+import promo from "@/components/Promo";
+import contacts from "@/components/Contacts";
+
+export default {
+  components: { promo, contacts },
+  data () {
+    return {
+      posts: [
+        {
+          id: 1,
+          title: '1 post',
+          descr: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.',
+          img: 'https://sun9-19.userapi.com/3XkI1CkKUtMDp51mLSpWRO3Wq3yo3aPCzl_lpg/VlNbCX0zfZQ.jpg'
+        },
+        {
+          id: 2,
+          title: '2 post',
+          descr: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.',
+          img: "https://sun9-71.userapi.com/hV9iAGICGYMU1-A0nlY860HlfmP2VW8kE3--iQ/mQjrJFyrvm8.jpg"
+        },
+        {
+          id: 3,
+          title: '3 post',
+          descr: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.',
+          img: 'https://sun9-10.userapi.com/ZCOz5a6vpJZeiffYtuFSEbGMKQeh8PusrZ-m_w/lCxAV6Ccw4k.jpg'
+        }
+      ]
+    }
+  }
+}
 </script>
-
-<style>
-.container {
-  margin: 0 auto;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-
-.title {
-  font-family:
-    'Quicksand',
-    'Source Sans Pro',
-    -apple-system,
-    BlinkMacSystemFont,
-    'Segoe UI',
-    Roboto,
-    'Helvetica Neue',
-    Arial,
-    sans-serif;
-  display: block;
-  font-weight: 300;
-  font-size: 100px;
-  color: #35495e;
-  letter-spacing: 1px;
-}
-
-.subtitle {
-  font-weight: 300;
-  font-size: 42px;
-  color: #526488;
-  word-spacing: 5px;
-  padding-bottom: 15px;
-}
-
-.links {
-  padding-top: 15px;
-}
-</style>
