@@ -13,28 +13,20 @@ import contacts from "@/components/Contacts";
 
 export default {
   components: { promo, contacts },
-  // asyncData () {
-  //   return new Promise ((resolve, reject) => {
-  //     setTimeout(() => {
-  //       resolve({
-  //         posts: [
-  //           {
-  //             id: 1,
-  //             title: '1 post',
-  //             descr: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.',
-  //             img: 'https://sun9-19.userapi.com/3XkI1CkKUtMDp51mLSpWRO3Wq3yo3aPCzl_lpg/VlNbCX0zfZQ.jpg'
-  //           }
-  //         ]
-  //       })
-  //     }, 1500)
-  //   })
-  //   .then(data => {
-  //     return data
-  //   })
-  //   .catch(e => {
-  //     context.error(e)
-  //   })
-  // },
+  head () {
+    let title = 'My SSR Blog',
+        descr = 'My SSR Blog with Nuxt.JS',
+        type = 'site'
+    return {
+      title: title,
+      meta: [
+        { hid: 'og:title', name: 'og:title', content: title },
+        { hid: 'description', name: 'description', content: descr },
+        { hid: 'og:description', name: 'og:description', content: descr },
+        { hid: 'og:type', name: 'og:type', content: type }
+      ]
+    }
+  },
   computed: {
     postsLoaded () {
       return this.$store.getters.getPostLoaded
